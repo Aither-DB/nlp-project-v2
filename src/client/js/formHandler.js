@@ -1,31 +1,35 @@
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
 
-    // Check what text was put into the form field
-    let formURL = document.getElementById('name').value;
+    const formURL = document.getElementById('name').value.trim();
 
-    if (Client.checkForURL(formURL)) {
-        console.log("::: Form Submitted :::");
-        
-        fetch('http://localhost:8081/data', {
+    if (!Client.checkForURL(formURL)) {
+        alert('Please enter a valid URL.');
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:8081/data', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify({url: formURL})
-        })
-        .then(res => res.json())
-        .then(function(res) {
-            // Log the response to the console
-            console.log(res);
-            // Update the page with the details
-            document.getElementById('agreement').innerHTML = `Agreement: <span>${res.agreement}</span>`
-            document.getElementById('subjectivity').innerHTML = `Subjectivity: <span>${res.subjectivity}</span>`
-            document.getElementById('irony').innerHTML = `Irony: <span>${res.irony}</span>`
-            document.getElementById('confidence').innerHTML = `Confidence: <span>${res.confidence}</span>`
-          })
-        } else (
-            alert('That URL is not going to work for me sorry, can you try something different?')
-        );
-    }
+            body: JSON.stringify({ url: formURL })
+        });
 
-export { handleSubmit }
+        if (!response.ok) {
+            throw new Error('Something went wrong. Please try again later.');
+        }
+
+        const data = await response.json();
+
+        document.getElementById('agreement').innerHTML = `<span>${data.agreement}</span>`;
+        document.getElementById('subjectivity').innerHTML = `<span>${data.subjectivity}</span>`;
+        document.getElementById('irony').innerHTML = `<span>${data.irony}</span>`;
+        document.getElementById('confidence').innerHTML = `<span>${data.confidence}</span>`;
+    } catch (error) {
+        console.error(error);
+        alert('Something went wrong. Please try again later.');
+    }
+}
+
+export { handleSubmit };

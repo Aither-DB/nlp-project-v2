@@ -1,12 +1,125 @@
-form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:hover {
+        transform: scale(1.1);
+      }
+  }
+  
+  input[type="text"] {
+    min-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  button {
+    background-color: orange;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    min-width: 100%;
+    text-transform: uppercase;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  button:hover {
+    background-color: orangered;
+  }
+
+  /* Custom styles for the "results" section */
+
+/* header */
+
+#results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
-}
+#results h3 {
+    font-size: 24px;
+    margin-bottom: 50px;
+  }
+  
+/* Keyframe animation for the text */
+@keyframes text-animation {
+    0% {
+      font-size: 1.5em;
+    }
+    50% {
+      font-size: 1.8em;
+    }
+    100% {
+      font-size: 1.5em;
+    }
+  }
+  
+  /* Apply the animation to the desired element */
+  .nlp-result {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    animation-name: text-animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+  
+  
+  .nlp-result:before {
+    content: attr(id) ": ";
+    font-weight: bold;
+  }
+  
+  #agreement:before {
+    content: "Agreement: ";
+  }
+  
+  #subjectivity:before {
+    content: "Subjectivity: ";
+  }
+  
+  #irony:before {
+    content: "Irony: ";
+  }
+  
+  #confidence:before {
+    content: "Confidence: ";
+  }
+  
+  /* Styling for each nlp-result item */
+  .nlp-result.true {
+    color: green;
+  }
+  
+  .nlp-result.false {
+    color: red;
+  }
+  
+  .nlp-result.unknown {
+    color: orange;
+  }
+  
+  .nlp-result.loading {
+    color: gray;
+  }
+
+  /* Add margin to the left and right of .form on smaller screens */
+@media screen and (max-width: 811px) {
+    .form {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+  

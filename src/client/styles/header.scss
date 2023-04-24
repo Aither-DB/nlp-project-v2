@@ -1,5 +1,17 @@
+  @import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+
 header {
     display: flex;
     justify-content: center;
-    padding: 40px 10px 0px 10px;
+    padding: 40px 10px 20px 10px;
+    background-color: whitesmoke;
 }
+
+.logo h1 {
+    font-size: 3em;
+    text-align: center;
+    font-family: 'Faster One', cursive;
+    transition: all 0.2s ease-in-out;
+    color: black;
+    }
+  

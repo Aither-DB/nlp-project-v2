@@ -19,6 +19,9 @@
         </header>
 
         <main>
+            <section id="description">
+                <p>This is a tool to help you analyze the sentiment of articles online. Just copy the URL of your article below and we'll use Meaning Cloud's Sentiment Analysis feature to come back with some insights around how in agreement the article is, how subjective they are, how ironic they are being and how confident they are in what they are saying. </p>
+            </section>
             <section class="form">
                 <input id="name" type="text" name="input" value="" placeholder="Paste your URL in here...">
                 <button onclick="return Client.handleSubmit(event)">Let's go!</button>
@@ -26,7 +29,7 @@
 
             <section>
                 <div id="results">
-                    <h3>Time to find out what the sentiment of the article is...</h3>
+                    <h3>The results are in...</h3>
                     <div class="nlp-result" id="agreement"></div>
                     <div class="nlp-result" id="subjectivity"></div>
                     <div class="nlp-result" id="irony"></div>
@@ -36,7 +39,7 @@
         </main>
 
         <footer>
-            <p>Acknowledgment to <a href="https://www.meaningcloud.com/" target="_blank">Meaning Cloud</a> for the Natural Language Processing</p>
+            <p>This application is powered by <a href="https://www.meaningcloud.com/" target="_blank">Meaning Cloud</a>. Big thanks to them for making this Natural Language Processing feature freely available!</p>
         </footer>
         <script>
             if ('serviceWorker' in navigator) {
