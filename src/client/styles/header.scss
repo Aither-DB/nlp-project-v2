@@ -3,7 +3,7 @@
 header {
     display: flex;
     justify-content: center;
-    padding: 40px 10px 20px 10px;
+    padding: 40px 20vh 20px 20vh;
     background-color: whitesmoke;
 }
 
@@ -14,4 +14,11 @@ header {
     transition: all 0.2s ease-in-out;
     color: black;
     }
+  
+      /* Add margin to the left and right of #description on smaller screens */
+  @media screen and (max-width: 811px) {
+    header {
+        padding: 40px 5vh 20px 5vh;
+    }
+  }
   
