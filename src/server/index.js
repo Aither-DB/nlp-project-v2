@@ -4,7 +4,8 @@ dotenv.config();
 
 // Import and set up Node.js modules
 var path = require('path')
-const fetch = require('node-fetch');
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
 const express = require('express')
 const app = express()
 
