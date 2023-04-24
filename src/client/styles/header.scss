@@ -1,0 +1,35 @@
+  @import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20vh 20px 20vh;
+    background-color: whitesmoke;
+}
+
+.logo h1 {
+    font-size: 3em;
+    text-align: center;
+    font-family: 'Faster One', cursive;
+    transition: all 0.2s ease-in-out;
+    color: black;
+    }
+
+.logo h2 {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    color: grey;
+    margin-top: 10px;
+    }
+  
+      /* Add margin to the left and right of #description on smaller screens */
+  @media screen and (max-width: 811px) {
+    header {
+        padding: 40px 5vh 20px 5vh;
+    }
+  }
+  
